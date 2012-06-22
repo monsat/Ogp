@@ -44,6 +44,11 @@ git clone git://github.com/monsat/Ogp.git Plugin/Ogp
 CakePlugin::load('Ogp');
 ```
 
+```php
+# APP/Controller/AppController.php
+$helpers = array( 'Html', 'Form', 'Ogp.Ogp');
+```
+
 ### Default settings
 
 If you do not set values in views , default values are used.
