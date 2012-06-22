@@ -8,10 +8,17 @@ USAGE
 
 ```php
 # view
-$this->Ogp->title('page title');
+$this->Ogp->title('page title');     // add title tag
 $this->Ogp->image($post['Post']['author_image_url']);
 // the other property
-$this->Ogp->set('description', "description is stripped \n and <b>tags</b>");
+$this->Ogp->set(
+  'description',                     // name="og:description"
+  "stripped \n and <b>tags</b>",     // content
+  // options
+  array(
+    'meta' => true,                  // add normal meta tag
+  ),
+);
 
 # layout
 $this->fetch('meta');
