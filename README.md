@@ -60,3 +60,17 @@ Configure::write('Site', array(
   'separator' => ' - ',
 ));
 ```
+
+### Settings
+
+default settings
+
+```php
+Configure::write('Ogp.settings', array(
+  'title' => 'Site.title',
+  'description' => 'Site.description',
+  'image' => 'Site.image',
+  'type' => 'Site.type',
+  'separator' => 'Site.separator',
+));
+```
