@@ -9,14 +9,12 @@ USAGE
 ```php
 # view
 $this->Ogp->title('page title');
-$this->Ogp->description("description is stripped \n and <b>tags</b>");
 $this->Ogp->image($post['Post']['author_image_url']);
+// the other property
+$this->Ogp->set('description', "description is stripped \n and <b>tags</b>");
 
 # layout
 $this->fetch('meta');
-$this->fetch('css');
-$this->fetch('script');
-$this->fetch('ogp'); // add this line
 ```
 
 INSTALL
@@ -53,7 +51,7 @@ If you do not set values in views , default values are used.
 ```php
 # APP/Config/bootstrap.php
 Configure::write('Site', array(
-  'title' => 'My Site',
+  'site_name' => 'My Site',
   'description' => 'My Site is awesome',
   'image' => '/img/image.png',
   'type' => 'website',
@@ -67,10 +65,7 @@ default settings
 
 ```php
 Configure::write('Ogp.settings', array(
-  'title' => 'Site.title',
-  'description' => 'Site.description',
-  'image' => 'Site.image',
-  'type' => 'Site.type',
-  'separator' => 'Site.separator',
+  'base' => 'Site.',
+  'autoKeys' => array('type'), // set by beforeLayout
 ));
 ```
