@@ -90,4 +90,24 @@ class OgpHelperTestCase extends CakeTestCase {
 		$expected = '<meta property="og:image" content="' . $fullurl . '" />';
 	}
 
+	public function testSetURL() {
+		$expected = '<meta property="og:url" content="'. Router::url("", true) . '" />';
+		$this->Ogp->set('url');
+		$result = $this->View->fetch('meta');
+		$this->assertSame($expected, $result);
+	}
+
+	public function testSetURLOprions() {
+		$expected = '<meta property="og:url" content="" />';
+		$this->Ogp->set('url', '', array('url'=>false));
+		$result = $this->View->fetch('meta');
+		$this->assertSame($expected, $result);
+	}
+	
+	public function testSetURLContent() {
+		$expected = '<meta property="og:url" content="/index.php" />';
+		$this->Ogp->set('url', '/index.php');
+		$result = $this->View->fetch('meta');
+		$this->assertSame($expected, $result);
+	}
 }

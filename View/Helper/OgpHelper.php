@@ -21,9 +21,14 @@ class OgpHelper extends AppHelper {
 		$options += array(
 			'meta' => false,
 			'stripTags' => true,
+			'url' => true,
 		);
 		if (empty($content)) {
-			$content = $this->_configure($name);
+			if($name == 'url' && $options['url']) {
+				$content = Router::url("", true);
+			} else {
+				$content = $this->_configure($name);
+			}
 		}
 		if (!empty($options['stripTags'])) {
 			$content = strip_tags($content);
