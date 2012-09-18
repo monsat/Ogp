@@ -129,5 +129,11 @@ class OgpHelperTestCase extends CakeTestCase {
 		$result = $this->View->fetch('meta');
 		$this->assertSame($expected, $result);
 	}
+
+	public function testPrefix() {
+		$expected = '<meta property="fb:ipp_id" content="1234567890" />';
+		$this->Ogp->set('ipp_id', '1234567890', array('prefix' => 'fb:'));
+		$this->assertSame($expected, $this->View->fetch('meta'));
+	}
 	
 }

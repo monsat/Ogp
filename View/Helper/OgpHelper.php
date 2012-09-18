@@ -22,6 +22,7 @@ class OgpHelper extends AppHelper {
 			'meta' => false,
 			'stripTags' => true,
 			'url' => true,
+			'prefix' => 'og:',
 		);
 		if (empty($content)) {
 			if($name == 'url' && $options['url']) {
@@ -34,8 +35,7 @@ class OgpHelper extends AppHelper {
 			$content = strip_tags($content);
 			$content = str_replace(array("\t", "\r", "\n"), '', $content);
 		}
-		$prefix = 'og:';
-		$property = $prefix . $name;
+		$property = $options['prefix'] . $name;
 		$this->_View->append('meta', $this->Html->meta(compact('property', 'content')));
 		$this->actual[] = $name;
 		if (!empty($options['meta'])) {
