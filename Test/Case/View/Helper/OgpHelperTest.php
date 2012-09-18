@@ -110,4 +110,14 @@ class OgpHelperTestCase extends CakeTestCase {
 		$result = $this->View->fetch('meta');
 		$this->assertSame($expected, $result);
 	}
+	
+	public function testDescription() {
+		$name = 'description';
+		$content = 'bar';
+		$options = array('meta' => true);
+		$expected = '<meta property="og:description" content="bar" /><meta name="description" content="bar" />';
+		$this->Ogp->set($name, $content, $options);
+		$result = $this->View->fetch('meta');
+		$this->assertSame($expected, $result);
+	}
 }
