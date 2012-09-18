@@ -120,4 +120,14 @@ class OgpHelperTestCase extends CakeTestCase {
 		$result = $this->View->fetch('meta');
 		$this->assertSame($expected, $result);
 	}
+	
+	public function testTitleNoSeparator() {
+		$title = 'bar';
+		$options = array('site_name' => false, 'title_for_layout' => false, 'separator' => false);
+		$expected = '<meta property="og:title" content="bar" />';
+		$this->Ogp->title($title, $options);
+		$result = $this->View->fetch('meta');
+		$this->assertSame($expected, $result);
+	}
+	
 }

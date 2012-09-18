@@ -46,13 +46,16 @@ class OgpHelper extends AppHelper {
 	public function title($title = '', $options = array()) {
 		$options += array(
 			'site_name' => true,
-			'title_for_layout' => true, 
+			'title_for_layout' => true,
+			'separator' => true,
 		);
 		$site_name = $this->_configure('site_name');
 		if (empty($title)) {
 			$title = $site_name;
 		} else {
-			$title .= $this->_configure('separator') . $site_name;
+			if($options['separator']) {
+				$title .= $this->_configure('separator') . $site_name;
+			}
 		}
 		$this->set('title', $title);
 		if (!empty($options['site_name'])) {
