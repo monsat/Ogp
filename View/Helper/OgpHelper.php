@@ -6,7 +6,7 @@ class OgpHelper extends AppHelper {
 	public $helpers = array('Html', 'Form', 'Text');
 	public $actual = array();
 
-	public function beforeLayout() {
+	public function beforeLayout($layoutFile) {
 		$keys = Configure::read('Ogp.settings.autoKeys');
 		if (is_array($keys)) {
 			foreach ($keys as $name) {
