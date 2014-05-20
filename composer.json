@@ -1,5 +1,5 @@
 {
-  "name": "monsat/Ogp",
+  "name": "monsat/ogp",
   "description": "CakePHP OGP Plugin",
   "type": "cakephp-plugin",
   "keywords": ["cakephp", "ogp"],
