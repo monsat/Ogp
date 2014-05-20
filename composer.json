@@ -1,0 +1,10 @@
+{
+  "name": "monsat/Ogp",
+  "description": "CakePHP OGP Plugin",
+  "type": "cakephp-plugin",
+  "keywords": ["cakephp", "ogp"],
+  "license": "MIT",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
